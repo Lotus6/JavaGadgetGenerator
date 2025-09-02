@@ -222,3 +222,9 @@ https://github.com/woodpecker-appstore/jexpr-encoder-utils
 https://github.com/kezibei/Urldns
 
 https://github.com/unam4/yso-mysqlpipe
+
+**免责声明**
+
+本工具仅能在取得足够合法授权的企业安全建设中使用，在使用本工具过程中，您应确保自己所有行为符合当地的法律法规。
+
+如您在使用本工具的过程中存在任何非法行为，您将自行承担所有后果，本工具所有开发者和所有贡献者不承担任何法律及连带责任。
