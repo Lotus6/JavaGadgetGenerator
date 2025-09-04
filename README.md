@@ -9,14 +9,15 @@
 
 ### Ysoserial chain
 
-| Ysoserial Gadget   | 实现 |
-| ------------------ | ---- |
-| cc 等链            | √    |
-| cb 等链            | √    |
-| Fastjson1          | √    |
-| Fastjson2          | √    |
-| SpringAOP（jdk17） | √    |
-| …                  |      |
+| Ysoserial Gadget                                             | 实现 |
+| ------------------------------------------------------------ | ---- |
+| cc 等链                                                      | √    |
+| cb 等链                                                      | √    |
+| Fastjson1                                                    | √    |
+| Fastjson2                                                    | √    |
+| SpringHighJDKAOP（jdk17）spring-aop 3/4/5 版本 suid 6115154060221772279L | √    |
+| SpringHighJDKHighAOP（jdk17）spring-aop 6/7 版本 suid 273003553246259276L | √    |
+| …                                                            |      |
 
 ### 帆软 Gadget
 
