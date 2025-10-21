@@ -15,8 +15,8 @@
 | cb 等链                                                      | √    |
 | Fastjson1                                                    | √    |
 | Fastjson2                                                    | √    |
-| SpringHighJDKAOP（jdk17）spring-aop 3/4/5 版本 suid 6115154060221772279L | √    |
-| SpringHighJDKHighAOP（jdk17）spring-aop 6/7 版本 suid 273003553246259276L | √    |
+| SpringHighJDKAOP（jdk17）spring-aop <=6.0.23 suid 6115154060221772279L | √    |
+| SpringHighJDKHighAOP（jdk17）spring-aop >=6.1.0 版本 suid 273003553246259276L | √    |
 | …                                                            |      |
 
 ### 帆软 Gadget
