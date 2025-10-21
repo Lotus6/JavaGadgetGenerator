@@ -35,7 +35,7 @@
 | 脏数据 ARRAY/linkedList/TCRESET         | √    |
 | UTF-8 混淆 yso（2bytes/3bytes）/hessian | √    |
 | 压缩 compress                           | √    |
-| MysqlPipe 不出网利用                    | √    |
+| MysqlPipe 不出网利用，5(mysql5/mysql6)，5.1(5.1.11-5.1.18)，8(8.0.7-8.0.20)                    | √    |
 | Abstrant 继承                       | √    |
 
 ### Gadget 模块说明
