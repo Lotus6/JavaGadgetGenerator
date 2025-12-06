@@ -1,23 +1,26 @@
 # JavaGadgetGenerator
 * JavaGadgetGenerator 工具，支持 ysoserial，Hessian，字节码，Expr/SSTI，Shiro，JDBC 等 Gadget 生成，封装，混淆，出网延迟探测，内存马注入等...
-* 迭代了很多版本，一直没发布，重新更新！！！
 * (如果对您有帮助，感觉不错的话，请您给个大大的 ⭐️❗️)
-<img width="884" height="641" alt="image" src="https://github.com/user-attachments/assets/88bc2fac-41b7-41b7-ae9a-8af15582cead" />
+* 迭代了很多版本，一直没发布，重新更新！！！
+<img width="936" height="688" alt="image" src="https://github.com/user-attachments/assets/9206e1f3-8595-45e6-a86e-e6614fcda601" />
+
+
 
 
 ## 1.ysoserial 模块
 
 ### Ysoserial chain
 
-| Ysoserial Gadget                                             | 实现 |
-| ------------------------------------------------------------ | ---- |
-| cc 等链                                                      | √    |
-| cb 等链                                                      | √    |
-| Fastjson1                                                    | √    |
-| Fastjson2                                                    | √    |
-| SpringHighJDKAOP（jdk17）spring-aop <=6.0.23 suid 6115154060221772279L | √    |
-| SpringHighJDKHighAOP（jdk17）spring-aop >=6.1.0 版本 suid 273003553246259276L | √    |
-| …                                                            |      |
+| Ysoserial Gadget | 实现  |
+|------------------|-----|
+| cc 等链            | √   |
+| cb 等链            | √   |
+| Fastjson1        | √   |
+| Fastjson2        | √   |
+| SpringAOP（jdk17） | √   |
+| TongWebEcj       | √   |
+| Fileupload1      | √   |
+| …                |     |
 
 ### 帆软 Gadget
 
@@ -35,7 +38,7 @@
 | 脏数据 ARRAY/linkedList/TCRESET         | √    |
 | UTF-8 混淆 yso（2bytes/3bytes）/hessian | √    |
 | 压缩 compress                           | √    |
-| MysqlPipe 不出网利用，5(mysql5/mysql6)，5.1(5.1.11-5.1.18)，8(8.0.7-8.0.20)                    | √    |
+| MysqlPipe 不出网利用                    | √    |
 | Abstrant 继承                       | √    |
 
 ### Gadget 模块说明
@@ -48,7 +51,7 @@
 6. ClassLoaderFromBase64Code，ClassLoader define 加载 base64 字节码，参数：Base64Str
 7. UnsafeDefineAmFromBase64Code，Unsafe define 加载 base64 字节码，参数：Base64Str，
 8. UrlClassLoaderFromJar，URLClassLoader 加载目标本地恶意 JAR，参数：jar 的路径(file:///tmp/Evil.jar) ，额外参数： jar 的 ClassName 
-9. WebShell，随机生成 webshell 配置后，直接生成 gadget 即可
+9. WebShell，填写 webshell base64 字节码
 10. TomcatCmdEcho，Tomcat 通用回显：header 头 par1m：whoami，无参数
 11. LoadClass，加载本地恶意 Class 文件内容，参数：/Users/xxx/Desktop/Evil.class
 12. LoadClassBase64，加载恶意 base64 Class 文件内容，参数：base64Str 
@@ -64,11 +67,12 @@
 22. ScriptFile，js.eval() 方式执行，参数：/Users/xxx/Desktop/jsEvalCodeFile
 23. JNDI，lookup JNDI 地址，参数：ldap://xxx.xxx.xxx.xxx
 24. UploadFile，读取本地文件写入到目标机器路径，参数：本地文件路径，额外参数：目标路径
-25. UploadFileBase64，本地文件 Base64 内容，参数：本地 base64 文件内容，额外参数：目标路径
-26. MozillaClassLoader，Runtime，Template 被禁用情况下用 org.mozilla.javascript.DefiningClassLoader defineClass 加载字节码，参数：本地 class 文件路径，额外参数：ClassName
-27. LoadRemoteClass，加载远程恶意 class，参数：http://127.0.0.1:8000/，额外参数：Txxxxx（恶意类名）
-28. LoadRemoteJar，加载远程恶意 jar，参数：http://127.0.0.1:8000/evil.jar，额外参数：Txxxxx（恶意类名）
-29. LoadRemoteSQL，加载远程恶意 sql，参数：http://127.0.0.1:8000/evil.sql
+25. UploadFileBase64，读取 Base64 内容，写入到目标路径，参数：本地 base64 文件内容，额外参数：目标路径
+26. UploadFileBase64Crack，读取 Base64 内容，写入到目标路径，参数：本地 base64 文件内容，额外参数：目标路径，仅用于（Fileupload1）链，用于报错出随机文件名
+27. MozillaClassLoader，Runtime，Template 被禁用情况下用 org.mozilla.javascript.DefiningClassLoader defineClass 加载字节码，参数：本地 class 文件路径，额外参数：ClassName
+28. LoadRemoteClass，加载远程恶意 class，参数：http://127.0.0.1:8000/，额外参数：Txxxxx（恶意类名）
+29. LoadRemoteJar，加载远程恶意 jar，参数：http://127.0.0.1:8000/evil.jar，额外参数：Txxxxx（恶意类名）
+30. LoadRemoteSQL，加载远程恶意 sql，参数：http://127.0.0.1:8000/evil.sql
 
 
 ## 2.bytes 模块
@@ -223,6 +227,8 @@ https://github.com/woodpecker-appstore/jexpr-encoder-utils
 https://github.com/kezibei/Urldns
 
 https://github.com/unam4/yso-mysqlpipe
+
+
 
 **免责声明**
 
