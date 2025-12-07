@@ -1,9 +1,7 @@
 # JavaGadgetGenerator
-* JavaGadgetGenerator 工具，支持 ysoserial，Hessian，字节码，Expr/SSTI，Shiro，JDBC 等 Gadget 生成，封装，混淆，出网延迟探测，内存马注入等...
+* JavaGadgetGenerator 工具，支持 ysoserial，Hessian，字节码，Expr/SSTI，Shiro，JDBC，FastjsonBypass 等 Gadget 生成，封装，混淆，出网延迟探测，内存马注入等...
 * (如果对您有帮助，感觉不错的话，请您给个大大的 ⭐️❗️)
-* 迭代了很多版本，一直没发布，重新更新！！！
-<img width="936" height="688" alt="image" src="https://github.com/user-attachments/assets/9206e1f3-8595-45e6-a86e-e6614fcda601" />
-
+<img width="936" height="688" alt="image" src="https://github.com/user-attachments/assets/2b58c19d-c5cc-45d9-bb8d-c8d756eca148" />
 
 
 
@@ -79,20 +77,21 @@
 
 ### 封装模块
 
-| 封装               | 实现方式                               | 利用                                                         |
-| ------------------ | -------------------------------------- | ------------------------------------------------------------ |
-| JDK_Abstrant       | Tmplate 链继承的父类                   | JDK 原生内置                                                 |
-| XALAN_Abstrant     | Template 链继承父类                    | 外部 Apache Xalan 库的版本                                   |
-| SnakeYaml          | ScriptEngineFactory 实现类             | Snakeyaml loadJar 时需要实现 ScriptEngineFactory 接口        |
-| FastjsonGroovy     | @GroovyASTTransformation 注解封装      | Fastjson Groovy 1.2.80 利用                                  |
-| FastjsonAutoGroovy | AutoCloseable 实现类                   | Fastjson 1.2.68 利用                                         |
-| JavaSerialize      | Serializable 实现类                    | 反序列化利用                                                 |
-| Java_Main          | 恶意方法封装到 _main 函数内            | Hessian 反序列化利用链 BCEL 需要（JavaWrapper#_main）        |
-| JavaMain           | main 函数                              | 双击运行 jar                                                 |
-| JavaCharset        | CharsetProvider 实现类                 | 写 jre/lib 目录时利用                                        |
-| SvgJar 输出        | MANIFEST.MF SVG-Handler-Class:xxx 入口 | svg setter RCE 时利用                                        |
-| ScriptSPIJar 输出  | SnakeYaml jar 包封装                   | Snakeyaml loadJar 时利用                                     |
-| ClassName          | 自定义类名，不传入参数则随机生成类名   | 自定义类名，DerbyRemoteJarLoader 加载 jar 时执行 jar 包静态方法。 |
+| 封装                      | 实现方式                                 | 利用                                               |
+|-------------------------|--------------------------------------|--------------------------------------------------|
+| JDK_Abstrant            | Tmplate 链继承的父类                       | JDK 原生内置                                         |
+| XALAN_Abstrant          | Template 链继承父类                       | 外部 Apache Xalan 库的版本                             |
+| FastjsonGroovy          | @GroovyASTTransformation 注解封装        | Fastjson Groovy 1.2.80 利用                        |
+| FastjsonAutoGroovy      | AutoCloseable 实现类                    | Fastjson 1.2.68 利用                               |
+| JavaSerialize           | Serializable 实现类                     | 反序列化利用                                           |
+| Java_Main               | 恶意方法封装到 _main 函数内                    | Hessian 反序列化利用链 BCEL 需要（JavaWrapper#_main）       |
+| JavaMain                | main 函数                              | 双击运行 jar                                         |
+| JavaStaticMethodWrapper | static void 函数                       | …                                                |
+| CharsetsJar             | IBM 函数                               | jre/charsets.jar 利用                              |
+| CharsetsSPIJar          | CharsetProvider 实现类                  | jre/lib 目录时利用                                    |
+| SvgJar 输出               | MANIFEST.MF SVG-Handler-Class:xxx 入口 | svg setter RCE 时利用                               |
+| ScriptSPIJar 输出         | ScriptEngineFactory 实现类              | Snakeyaml loadJar 时需要实现 ScriptEngineFactory 接口   |
+| ClassName               | 自定义类名，不传入参数则随机生成类名                   | 自定义类名，DerbyRemoteJarLoader 加载 jar 时执行 jar 包静态方法。 |
 
 
 ## 3.Expr/SSTI 模块
@@ -199,14 +198,22 @@
 | DerbyRemoteJarLoader | 参数：远程 jar 包url（http://xx.com/xxx.jar）， jar名字需要和类名一样，因为内部需要 className，我默认截取的 jar 名字<br>额外参数：执行的静态函数名 | 远程加载 jar，执行 jar 的静态函数               |      |
 
 
+## 7.fastjson 模块
+
+| Bypass                 | 功能                  |
+|------------------------|---------------------|
+| HexBypass              | hex 编码              |
+| UnicodeBypass          | unicode 编码          |
+| DoubleUnicodeBypass    | double unicode 编码   |
+| RandomKVBypass         | key value 随机用以上编码方式 |
+| RandomCharactersBypass | 每个字符随机用以上编码方式       |
 
 
 
 
 
 
-
-**感谢**
+**致谢**
 
 https://github.com/frohoff/ysoserial
 
@@ -227,6 +234,8 @@ https://github.com/woodpecker-appstore/jexpr-encoder-utils
 https://github.com/kezibei/Urldns
 
 https://github.com/unam4/yso-mysqlpipe
+
+
 
 
 
